@@ -1,0 +1,18 @@
+// Since I cannot think of any time that an upside down question mark would be used in creating the script, I am using "¿" to indicate that text in between two of those is the part that you have to fill in and is NOT part of the "code." 
+
+//The end result will look like the below (so rely on it as a visual representation rather than exactly what gets copied and pasted), but it is "constructed" in parts. The first part is the target field, which must be specified, and the second part is the calculated result. The part that you need to put into the calculated result window is provided below (and should only require you putting in your target field) what your window should look like in the "Script window," but that is the combination of the target and the calculated result.
+Loop
+  Insert Calculated Result [Select; ¿Target Field¿; ¿Filemaker will then add the calculated result here as a long string of text. You only have to worry about including that text in the "calculated result" window.
+  Go to Record/Request/Page [Next; Exit after last]
+  Allow User Abort [On]
+  Beep
+End Loop
+
+
+
+"(" & // start with an open paren sign
+Left ( Filter ( TextFormatRemove ( Volunteer file as of 7 November 2014 _StandardText20141107_10835235976_::MobilePhone ); "0123456789" ); 3) & // fix the area code
+") " & //finish area code with close paren sign and a space
+Middle ( Filter (TextFormatRemove ( Volunteer file as of 7 November 2014 _StandardText20141107_10835235976_::MobilePhone ); "0123456789") ; 4; 3) & //fix the exchange
+"-" & //insert a hyphen
+Middle (Filter (TextFormatRemove ( Volunteer file as of 7 November 2014 _StandardText20141107_10835235976_::MobilePhone ); "0123456789" ); 7; 4)//the last 4 digits
